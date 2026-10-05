@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A tiny interactive garden. Water your plant, give it sunlight, and watch it bloom.">
+  <title>Pocket Garden</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body data-light="day">
+  <header><a href="./" class="logo">pocket garden <span>✳</span></a><span class="header-note">A LITTLE ROOM TO GROW</span></header>
+  <main>
+    <section class="intro"><p class="eyebrow">YOUR VERY OWN WINDOW GARDEN</p><h1>Small plant.<br><em>Big possibilities.</em></h1><p>A little water. A little sunshine. Bring your tiny garden to life, one action at a time.</p></section>
+    <div class="garden-layout">
+      <section class="controls" aria-labelledby="care-title">
+        <div class="panel-heading"><h2 id="care-title">Make yourself at home.</h2><span>01—03</span></div>
+        <label class="name-label" for="plant-name">Give your plant a name</label><input id="plant-name" maxlength="24" placeholder="e.g. Fernanda" autocomplete="off">
+        <div class="care-row"><span class="step">01</span><div><h3>A drink, please.</h3><p>Water three times to grow a healthy plant.</p></div></div>
+        <button class="action water" id="water-button" type="button"><span>Water plant</span><span aria-hidden="true">↘</span></button>
+        <div class="meter-label"><span>Water given</span><span id="water-count">0 / 3</span></div><progress id="water-progress" max="3" value="0" aria-label="Water given"></progress>
+        <div class="care-row"><span class="step">02</span><div><h3>Find the sunshine.</h3><p>Switch between daylight and moonlight.</p></div></div>
+        <button class="action light" id="light-button" type="button" aria-pressed="false"><span id="light-label">Switch to moonlight</span><span aria-hidden="true">◐</span></button>
+        <div class="care-row"><span class="step">03</span><div><h3>Let it bloom.</h3><p>Three drinks + daylight = flower time.</p></div></div>
+        <button class="action bloom" id="bloom-button" type="button" disabled><span id="bloom-label">Grow a flower</span><span aria-hidden="true">✳</span></button>
+        <p class="hint" id="keyboard-hint">Shortcuts: W = water · L = light · B = bloom</p>
+        <button class="reset" id="reset-button" type="button">Start a new garden ↗</button>
+      </section>
+      <section class="preview" aria-labelledby="plant-title">
+        <div class="preview-top"><span id="light-status">DAYLIGHT</span><span class="live-dot">● YOUR GARDEN</span></div>
+        <h2 id="plant-title">Your little plant</h2>
+        <div class="illustration">
+          <div class="sky-disc" aria-hidden="true"><span id="sky-symbol">☀</span></div>
+          <svg viewBox="0 0 420 450" role="img" aria-labelledby="plant-art-title"><title id="plant-art-title">A small seed in a terracotta pot</title>
+            <ellipse cx="210" cy="410" rx="124" ry="14" fill="#394d3822"/>
+            <g id="plant-growth" transform="translate(210 310) scale(0.25) translate(-210 -310)" hidden>
+              <path d="M210 315 Q202 237 210 155" fill="none" stroke="#456343" stroke-width="12" stroke-linecap="round"/>
+              <path d="M209 246 C147 251 134 214 133 188 C182 182 212 209 209 246Z" fill="#678853"/>
+              <path d="M211 216 C263 218 282 178 279 159 C235 159 210 181 211 216Z" fill="#92a96a"/>
+              <path d="M205 280 C171 284 154 264 150 249 C180 244 199 260 205 280Z" fill="#92a96a"/>
+              <g id="flower" hidden><circle cx="210" cy="127" r="22" fill="#e9b2b1"/><circle cx="235" cy="145" r="22" fill="#e9b2b1"/><circle cx="226" cy="173" r="22" fill="#e9b2b1"/><circle cx="194" cy="173" r="22" fill="#e9b2b1"/><circle cx="185" cy="145" r="22" fill="#e9b2b1"/><circle cx="210" cy="151" r="17" fill="#f0c56c"/></g>
+            </g>
+            <path d="M129 311 L144 392 Q210 419 276 392 L291 311Z" fill="#bb7155"/><path d="M145 328 L156 389" fill="none" stroke="#d58a6a" stroke-width="12"/>
+            <rect x="120" y="298" width="180" height="32" rx="7" fill="#cd8365"/>
+            <ellipse cx="210" cy="302" rx="80" ry="9" fill="#674839"/>
+            <path id="seed" d="M200 299 Q210 284 220 299" stroke="#98af6f" stroke-width="5" fill="none"/>
+          </svg>
+          <span class="plant-sticker" id="plant-stage">JUST GETTING STARTED</span>
+        </div>
+        <div class="status-area"><span class="status-label">GARDEN NOTES</span><p id="garden-status" role="status" aria-live="polite">Your seed is ready. Give it its first drink.</p></div>
+      </section>
+    </div>
+    <noscript><p class="no-js">Please enable JavaScript to water and grow your garden.</p></noscript>
+  </main>
+  <footer><span>GROW AT YOUR OWN PACE.</span><span>POCKET GARDEN © 2026</span></footer>
+</body>
+</html>
